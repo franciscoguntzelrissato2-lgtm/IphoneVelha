@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#090d18">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Meta Velha — jogo da velha em dois níveis contra um bot.">
+  <title>Meta Velha</title>
+  <link rel="icon" href="assets/meta-velha.png">
+  <link rel="apple-touch-icon" href="assets/meta-velha.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><img src="assets/meta-velha.png" alt="" class="brand-icon"><div><span class="eyebrow">JOGO ESTRATÉGICO</span><h1>Meta <b>Velha</b></h1></div></div>
+      <button id="soundBtn" class="icon-btn" aria-label="Ativar ou desativar sons" title="Som">♪</button>
+    </header>
+    <section id="homeScreen" class="screen">
+      <div class="hero-card">
+        <div class="hero-copy"><span class="pill">DOIS NÍVEIS. UMA META.</span><h2>Domine o<br><em>tabuleiro.</em></h2><p>Vença os minijogos, conquiste casas e forme a linha decisiva.</p></div>
+        <div class="hero-mark" aria-hidden="true"><span class="mark-x">X</span><span class="mark-hash">#</span></div>
+      </div>
+      <div class="section-heading"><div><span class="eyebrow">PREPARE-SE</span><h3>Escolha a dificuldade</h3></div></div>
+      <div class="difficulty-grid" role="group" aria-label="Dificuldade do bot">
+        <button class="difficulty" data-level="easy"><span class="difficulty-symbol">◌</span><span><strong>Fácil</strong><small>Para aquecer</small></span><span class="radio-dot"></span></button>
+        <button class="difficulty selected" data-level="medium"><span class="difficulty-symbol">◈</span><span><strong>Médio</strong><small>Jogo equilibrado</small></span><span class="radio-dot"></span></button>
+        <button class="difficulty" data-level="hard"><span class="difficulty-symbol">◆</span><span><strong>Difícil</strong><small>Desafio máximo</small></span><span class="radio-dot"></span></button>
+      </div>
+      <button id="startBtn" class="primary-btn">Começar partida <span>→</span></button>
+      <div class="rules-row"><span>✦</span><p><strong>Como vencer</strong><br>Conquiste três casas em linha no tabuleiro principal.</p></div>
+    </section>
+    <section id="gameScreen" class="screen hidden">
+      <div class="game-topline"><button id="backBtn" class="back-btn">‹ <span>Menu</span></button><div class="level-chip" id="levelChip">MÉDIO</div><button id="restartBtn" class="text-btn">Reiniciar ↻</button></div>
+      <div class="match-header"><div><span class="eyebrow">TABULEIRO PRINCIPAL</span><h2 id="gameTitle">Sua vez, X</h2><p id="gameSubtitle">Escolha uma casa disponível.</p></div><div class="turn-badge"><span id="turnSymbol">X</span><small>VEZ</small></div></div>
+      <div id="mainBoard" class="main-board" aria-label="Tabuleiro principal"></div>
+      <div class="legend"><span><i class="legend-x">X</i> Você</span><span><i class="legend-hash">#</i> Bot</span><span><i class="legend-open">·</i> Disponível</span></div>
+      <div class="mini-panel"><div class="mini-heading"><div><span class="eyebrow">MINIJOGO</span><h3 id="miniTitle">Escolha uma casa</h3></div><span id="miniStatus" class="mini-status">AGUARDANDO</span></div><div id="miniBoard" class="mini-board"></div><p id="miniMessage" class="mini-message">Toque em uma casa do tabuleiro principal para jogar.</p></div>
+      <div class="match-footer"><div><span class="eyebrow">CASAS CONQUISTADAS</span><div class="score-line"><span class="score-x">X <b id="scoreX">0</b></span><span class="score-hash"># <b id="scoreHash">0</b></span></div></div><button id="newGameBtn" class="secondary-btn">Nova partida</button></div>
+    </section>
+    <footer>FEITO PARA PENSAR <span>•</span> META VELHA</footer>
+  </main>
+  <div id="resultModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="resultTitle"><div class="modal-card"><div id="resultIcon" class="result-icon">🏆</div><span class="eyebrow">FIM DE PARTIDA</span><h2 id="resultTitle">Você venceu!</h2><p id="resultText">Uma grande jogada.</p><button id="playAgainBtn" class="primary-btn">Jogar novamente <span>→</span></button><button id="modalMenuBtn" class="modal-link">Voltar ao menu</button></div></div>
+  <script src="script.js"></script>
+</body>
+</html>

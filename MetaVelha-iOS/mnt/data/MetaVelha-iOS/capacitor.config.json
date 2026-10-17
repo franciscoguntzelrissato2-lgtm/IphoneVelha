@@ -1,0 +1,7 @@
+{
+  "appId": "br.com.metavelha.game",
+  "appName": "Meta Velha",
+  "webDir": "dist",
+  "server": { "androidScheme": "https" },
+  "ios": { "contentInset": "automatic" }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "meta-velha-ios",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Meta Velha — jogo da velha em dois níveis, preparado para iOS com Capacitor.",
+  "scripts": {
+    "start": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "ios:add": "cap add ios",
+    "ios:sync": "cap sync ios",
+    "ios:open": "cap open ios",
+    "test:logic": "node tests/logic.test.cjs"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/ios": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "vite": "^6.4.1"
+  }
+}
