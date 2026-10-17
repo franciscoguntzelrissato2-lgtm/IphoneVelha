@@ -1,0 +1,43 @@
+workflows:
+  meta-velha-ios:
+    name: Meta Velha - iOS
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+
+    environment:
+      node: 20
+      xcode: latest
+      cocoapods: default
+
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+
+      - name: Prepare Capacitor
+        script: |
+          npm run build
+          npx cap sync ios
+
+      - name: Build iOS
+        script: |
+          cd ios/App
+          xcodebuild \
+            -project App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath $CM_BUILD_DIR/MetaVelha.xcarchive \
+            archive
+
+      - name: Export IPA
+        script: |
+          cd ios/App
+          xcodebuild \
+            -exportArchive \
+            -archivePath $CM_BUILD_DIR/MetaVelha.xcarchive \
+            -exportPath $CM_BUILD_DIR/ipa \
+            -exportOptionsPlist ExportOptions.plist
+
+    artifacts:
+      - $CM_BUILD_DIR/ipa/*.ipa
